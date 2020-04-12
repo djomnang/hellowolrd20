@@ -1,7 +1,11 @@
 pipeline {
     agent any
-   triggers {
-        pollSCM 'H/1 * * * *'
+   triggers { cron('*/5 * * * *') }
+  stages {
+    stage('Print hello') {
+      steps {
+        echo 'hello
+
     }
 
     tools {
