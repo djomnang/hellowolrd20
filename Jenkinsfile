@@ -25,7 +25,7 @@ pipeline {
         stage('deploy'){
         steps {
           echo "deploy war file"
-            build 'texas CI'
+            build 'texas cd job'
           sleep 10
         }
       
