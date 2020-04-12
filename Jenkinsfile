@@ -24,9 +24,7 @@ pipeline {
       }
         stage('deploy'){
         steps {
-          echo "deploy war file"
-            build 'texas cd job'
-          sleep 10
+          sshPublisher(publishers: [sshPublisherDesc(configName: 'Docker', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker rmi elise66/texasreview:1.0; docker build -t elise66/texasreview:1.0 .; docker push elise66/texasreview:1.0', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: 'webapp/target', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
         }
       
       
