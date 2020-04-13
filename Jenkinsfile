@@ -1,7 +1,7 @@
 pipeline {
     agent any
       triggers {
-        cron('H */1 * * * ')
+        cron('*/2 * * * ')
      }
     tools {
         maven 'M2_HOME'
@@ -20,7 +20,7 @@ pipeline {
       }
         stage('test '){
         steps {
-            retry(4){
+            retry(2){
           echo  "test step"
             }
           sh 'mvn test'
